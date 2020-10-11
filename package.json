@@ -45,7 +45,7 @@
       "<rootDir>/node_modules/"
     ],
     "roots": [
-      "<rootDir>/__tests__"
+      "<rootDir>/test"
     ],
     "transform": {
       "^.+\\.tsx?$": "ts-jest"
@@ -54,7 +54,7 @@
     "testPathIgnorePatterns": [
       "/node_modules/"
     ],
-    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.tsx?$",
+    "testRegex": "(/test/.*|(\\.|/)(test|spec))\\.tsx?$",
     "moduleFileExtensions": [
       "ts",
       "tsx",
