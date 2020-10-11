@@ -1,9 +1,10 @@
 import Koa from "koa";
 import bodyParser from "koa-bodyparser";
-import { config } from './config';
+import { config } from "./config";
 import cors from "koa2-cors";
 import healthcheck from "./routes/healthcheck";
 import logger from "koa-logger";
+import spaceships from "./routes/spaceships";
 
 const app = new Koa();
 
@@ -17,6 +18,7 @@ app.use(
 );
 app.use(logger());
 app.use(healthcheck.routes());
+app.use(spaceships.routes());
 
 const server = app
   .listen(PORT, async () => {
