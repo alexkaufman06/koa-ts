@@ -18,3 +18,5 @@ jobs:
         run: npm run build
       - name: Test
         run: npm run test
+      - name: Audit dependencies
+        run: npm audit
