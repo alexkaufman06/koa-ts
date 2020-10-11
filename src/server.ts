@@ -1,12 +1,13 @@
 import Koa from "koa";
-import Router from "koa-router";
 import bodyParser from "koa-bodyparser";
+import { config } from './config';
 import cors from "koa2-cors";
+import healthcheck from "./routes/healthcheck";
 import logger from "koa-logger";
 
 const app = new Koa();
 
-const PORT = process.env.PORT || 7654;
+const PORT = config.port;
 
 app.use(bodyParser());
 app.use(
@@ -15,22 +16,7 @@ app.use(
   })
 );
 app.use(logger());
-
-// TEMP
-const router = new Router();
-
-router.get(`/`, async (ctx) => {
-  try {
-    ctx.body = {
-      status: "success",
-    };
-  } catch (err) {
-    console.error(err);
-  }
-});
-
-app.use(router.routes());
-// TEMP
+app.use(healthcheck.routes());
 
 const server = app
   .listen(PORT, async () => {
