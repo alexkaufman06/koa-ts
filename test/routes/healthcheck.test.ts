@@ -10,7 +10,7 @@ afterEach((done) => {
 describe("routes/healthcheck", () => {
   it("return data", async () => {
     const response = await request(server).get("/healthcheck");
-    expect(response.status).toEqual(200);
+    expect(response.status).toEqual(201);
     expect(response.type).toEqual("application/json");
     expect(response.body.data).toEqual("It works!");
   });
