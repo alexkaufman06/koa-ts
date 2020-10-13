@@ -1,4 +1,4 @@
-import { config } from "./../src/config";
+import { config } from "../src/config";
 
 describe("config", () => {
   it("port returns a string", async () => {

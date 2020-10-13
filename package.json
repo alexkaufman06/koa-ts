@@ -36,8 +36,8 @@
   "scripts": {
     "build": "tsc --build",
     "start": "ts-node-dev src/server.ts",
-    "test": "NODE_ENV=test PORT=7788 jest",
-    "test:watch": "npm run test -- --watchAll"
+    "test": "NODE_ENV=test PORT=7788 jest --maxWorkers=1",
+    "test:watch": "npm run test -- --watchAll --maxWorkers=1"
   },
   "jest": {
     "verbose": true,
