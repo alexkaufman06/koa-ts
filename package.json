@@ -4,6 +4,16 @@
   "description": "Code Review Video tutorial",
   "main": "index.js",
   "license": "MIT",
+  "scripts": {
+    "build": "tsc --build",
+    "start": "ts-node-dev src/server.ts",
+    "start:redis": "docker-compose up",
+    "connect:redis": "docker-compose exec redis /bin/sh",
+    "kill:redis": "docker-compose down",
+    "test": "NODE_ENV=test PORT=7788 jest --maxWorkers=1 --detectOpenHandles",
+    "test:ci": "docker-compose up --detach && npm run test",
+    "test:watch": "npm run test -- --watchAll --maxWorkers=1"
+  },
   "dependencies": {
     "class-validator": "^0.12.2",
     "koa": "^2.7.0",
@@ -32,12 +42,6 @@
     "supertest": "^4.0.2",
     "ts-jest": "^26.4.1",
     "ts-node-dev": "^1.0.0-pre.40"
-  },
-  "scripts": {
-    "build": "tsc --build",
-    "start": "ts-node-dev src/server.ts",
-    "test": "NODE_ENV=test PORT=7788 jest --maxWorkers=1",
-    "test:watch": "npm run test -- --watchAll --maxWorkers=1"
   },
   "jest": {
     "verbose": true,
