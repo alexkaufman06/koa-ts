@@ -10,7 +10,7 @@
     "start:redis": "docker-compose up",
     "connect:redis": "docker-compose exec redis /bin/sh",
     "kill:redis": "docker-compose down",
-    "test": "NODE_ENV=test PORT=7788 jest --maxWorkers=1 --detectOpenHandles",
+    "test": "NODE_ENV=test PORT=7788 jest --maxWorkers=1 --detectOpenHandles --forceExit",
     "test:ci": "docker-compose up --detach && npm run test",
     "test:watch": "npm run test -- --watchAll --maxWorkers=1"
   },
@@ -67,7 +67,16 @@
       "jsx",
       "json",
       "node"
-    ]
+    ],
+    "globals": {
+      "ts-jest": {
+        "diagnostics": {
+          "ignoreCodes": [
+            2540
+          ]
+        }
+      }
+    }
   },
   "husky": {
     "hooks": {

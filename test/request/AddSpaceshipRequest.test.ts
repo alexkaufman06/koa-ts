@@ -16,7 +16,7 @@ describe("request/AddSpaceshipRequest", () => {
 
   describe(`'name' validation`, () => {
     it("is valid", async () => {
-      for (let i = 1; i <= 20; ++i) {
+      for (let i = 1; i <= 25; ++i) {
         addSpaceshipRequest.name = "x".repeat(i);
         expect(
           await validate(addSpaceshipRequest, validatorOptions)
@@ -31,8 +31,8 @@ describe("request/AddSpaceshipRequest", () => {
       ).toHaveLength(1);
     });
 
-    it("must have a length of 20 characters or fewer", async () => {
-      addSpaceshipRequest.name = "y".repeat(21);
+    it("must have a length of 25 characters or fewer", async () => {
+      addSpaceshipRequest.name = "y".repeat(26);
       expect(
         await validate(addSpaceshipRequest, validatorOptions)
       ).toHaveLength(1);
